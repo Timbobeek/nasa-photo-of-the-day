@@ -3,7 +3,6 @@ import "./App.css";
 import Apod from './Apod';
 import axios from 'axios';
 
-import styled from 'styled-components';
 
 // const data = {
 //   copyright: "Col Druscie Obs.AAC",
@@ -21,7 +20,7 @@ function App() {
   const [apod, setApod] = useState({})
 
   useEffect(()=>{
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY')
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=Si8sAKHmVIvjzME5njGlgRwxJDYAxnutkYeaKS6o')
       .then(res=>{
         // console.log(res);
         setApod(res.data)
