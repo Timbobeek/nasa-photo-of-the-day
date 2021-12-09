@@ -31,7 +31,9 @@ function App() {
   },[]);
 
   return (
-    <Apod title={apod.title} image={apod.url} altImage={apod.title} description={apod.explanation} />
+    <div className ='App'>
+      <Apod title={apod.title} image={apod.url} altImage={apod.title} description={apod.explanation} />
+    </div>
   );
 }
 
