@@ -3,6 +3,8 @@ import "./App.css";
 import Apod from './Apod';
 import axios from 'axios';
 
+import styled from 'styled-components';
+
 // const data = {
 //   copyright: "Col Druscie Obs.AAC",
 //   date: "2021-12-08",
