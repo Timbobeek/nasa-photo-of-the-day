@@ -1,5 +1,6 @@
 export default {
   primaryColor: 'purple',
   secondaryColor: 'white',
-  tertiaryColor: 'yellow'
+  tertiaryColor: 'yellow',
+  quaternaryColor: 'lime'
 }

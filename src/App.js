@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./App.css";
 import Apod from './Apod';
+import Date from './Date';
 import axios from 'axios';
 
 
@@ -18,12 +19,25 @@ import axios from 'axios';
 
 function App() {
   const [apod, setApod] = useState({})
+  const [date, setDate] = useState('')
 
   useEffect(()=>{
     axios.get('https://api.nasa.gov/planetary/apod?api_key=Si8sAKHmVIvjzME5njGlgRwxJDYAxnutkYeaKS6o')
       .then(res=>{
-        // console.log(res);
+        // console.log(res.data);
         setApod(res.data)
+      })
+      .catch(err =>{
+        console.log(err)
+      })
+    
+  },[]);
+
+  useEffect(()=>{
+    axios.get('https://api.nasa.gov/planetary/apod?api_key=Si8sAKHmVIvjzME5njGlgRwxJDYAxnutkYeaKS6o')
+      .then(res=>{
+        console.log(res.data.date);
+        setDate(res.data.date)
       })
       .catch(err =>{
         console.log(err)
@@ -33,7 +47,8 @@ function App() {
 
   return (
     <div className ='App'>
-      <Apod title={apod.title} image={apod.url} altImage={apod.title} description={apod.explanation} />
+        <Date date={date} />
+        <Apod title={apod.title} image={apod.url} altImage={apod.title} description={apod.explanation} />
     </div>
   );
 }
