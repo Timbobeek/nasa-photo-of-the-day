@@ -3,7 +3,7 @@ import "./App.css";
 import Apod from './Apod';
 import Date from './Date';
 import axios from 'axios';
-
+import { BASE_URL, API_KEY } from './urlstuff';
 
 // const data = {
 //   copyright: "Col Druscie Obs.AAC",
@@ -22,21 +22,11 @@ function App() {
   const [date, setDate] = useState('')
 
   useEffect(()=>{
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=Si8sAKHmVIvjzME5njGlgRwxJDYAxnutkYeaKS6o')
+    axios.get(`${BASE_URL}/planetary/apod?api_key=${API_KEY}`)
       .then(res=>{
-        // console.log(res.data);
+        console.log('res.data', res.data);
+        // setApod({apod: res.data, date: res.data.date})
         setApod(res.data)
-      })
-      .catch(err =>{
-        console.log(err)
-      })
-    
-  },[]);
-
-  useEffect(()=>{
-    axios.get('https://api.nasa.gov/planetary/apod?api_key=Si8sAKHmVIvjzME5njGlgRwxJDYAxnutkYeaKS6o')
-      .then(res=>{
-        console.log(res.data.date);
         setDate(res.data.date)
       })
       .catch(err =>{
